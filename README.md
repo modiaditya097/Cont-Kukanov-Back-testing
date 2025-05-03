@@ -32,22 +32,15 @@ Everything runs in < 90 s on a laptop using only **pandas**, **numpy** and t
 
 | Parameter | Grid                     | Rationale                                           |
 |-----------|--------------------------|-----------------------------------------------------|
-| λ_over    | 0.001, 0.005, 0.01       | 0.1 ¢ – 1 ¢ per extra share (≈ 0.1 – 1 × spread).   |
+| λ_over    | 0.001, 0.005, 0.01       | 0.1  – 1 cent  per extra share (≈ 0.1 – 1 × spread) |
 | λ_under   | 0.001, 0.005, 0.01       | Symmetric penalties for under‑fills.                |
 | θ_queue   | 0, 0.0005, 0.001         | Small linear premium to avoid queue risk.           |
 
-27 points keep the grid tiny; exhaustive eval is cheaper than stochastic search.
+27 points keep the grid tiny; increasing the grid results in higher computational time.
 
 ---
 
-## 4 . Running
-
-```bash
-python backtest.py            # prints JSON to stdout
-```
-
-
-## 5 . Suggested improvement (fill realism)
+## 4 . Suggested improvement (fill realism)
 
 The back‑test assumes any displayed size executes immediately. A more realistic model would:
 
